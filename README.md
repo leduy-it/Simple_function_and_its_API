@@ -22,7 +22,7 @@ The application will run on http://127.0.0.1:5000/. Now you can send a POST requ
 ### Example POST request using CURL:
 
 ```bash
-curl -X POST -H "Content-Type: application/json" -d '{"stn1": "1234", "stn2": "897"}' http://127.0.0.1:5000/sum
+curl -X POST -H "Content-Type: application/json" -d '{"str1": "1234", "str2": "897"}' http://127.0.0.1:5000/sum
 ```
 
 
