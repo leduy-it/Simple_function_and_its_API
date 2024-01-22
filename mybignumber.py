@@ -3,7 +3,7 @@ class MyBigNumber:
         result = []
         temp = 0  # Biến để lưu giá trị nhớ, khởi tạo ban đầu bằng 0 vì chưa có giá trị nhớ
 
-
+        history = []
         # Tìm max length của 2 string làm điều kiện dừng cho vòng for
         max_length = max(len(str1), len(str2))
 
@@ -19,8 +19,9 @@ class MyBigNumber:
             result.insert(0, str(sum_str1_and_str2 % 10))
 
             # Ghi nhận lịch sử phép toán và in ra
-            print(f"Bước {len(result)}: Lấy {digit1} cộng với {digit2} nhớ {temp} được {sum_str1_and_str2}. Lưu {sum_str1_and_str2 % 10} vào kết quả và nhớ {sum_str1_and_str2 // 10}")
-
+            # print(f"Bước {len(result)}: Lấy {digit1} cộng với {digit2} nhớ {temp} được {sum_str1_and_str2}. Lưu {sum_str1_and_str2 % 10} vào kết quả và nhớ {sum_str1_and_str2 // 10}")
+            # Lưu lịch sử vào danh sách
+            history.append(f"Bước {len(result)}: Lấy {digit1} cộng với {digit2} nhớ {temp} được {sum_str1_and_str2}. Lưu {sum_str1_and_str2 % 10} vào kết quả và nhớ {sum_str1_and_str2 // 10}")
             # Cập nhật giá trị nhớ cho lần cộng tiếp theo
             temp = sum_str1_and_str2 // 10
 
@@ -30,11 +31,14 @@ class MyBigNumber:
             result.insert(0, str(temp))
 
             # Ghi nhận lịch sử phép toán
-            print(f"Bước {len(result)}: Nhớ {temp} cuối cùng. Thêm {temp} vào kết quả")
-
-        return ''.join(result)
+            # print(f"Bước {len(result)}: Nhớ {temp} cuối cùng. Thêm {temp} vào kết quả")
+            history.append(f"Bước {len(result)}: Nhớ {temp} cuối cùng. Thêm {temp} vào kết quả")
+        return ''.join(result), '\n'.join(history)
 
 # Tạo đối tượng my_big_number thuộc class MyBigNumber
 my_big_number = MyBigNumber()
-result = my_big_number.sum("334", "897")
+result, history = my_big_number.sum("334", "897")
+# In kết quả và lịch sử
 print("Kết quả:", result)
+print("\nCách tính:")
+print(history)
