@@ -14,7 +14,7 @@ pip install flask
 
 Run the application by executing:
 ```bash
-python app.py
+python main.py
 ```
 
 The application will run on http://127.0.0.1:5000/. Now you can send a POST request to /sum to receive the result and operation history.
